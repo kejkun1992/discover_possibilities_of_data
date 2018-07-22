@@ -1,0 +1,42 @@
+#:kivy 1.10.0
+
+<MyButton@Button>:
+    font_size: 26
+
+<UnitConversions>:
+    id: unit_conversions
+    display: label
+    rows: 4
+    padding: 5
+    spacing: 5
+    
+    TextInput:
+        id: entry
+        font_size: 26
+        text: 'entry'
+        
+    Label:
+        id: label
+        font_size: 26
+        text: 'result'
+        
+    BoxLayout:
+        MyButton:
+            text: 'in -> cm'
+        MyButton:
+            text: 'ft -> m'
+        MyButton:
+            text: 'yd -> m'
+        MyButton:
+            text: 'km/h -> m/s'
+            
+    BoxLayout:
+        MyButton:
+            text: 'cm -> in'
+        MyButton:
+            text: 'm -> ft'
+        MyButton:
+            text: 'm -> yd'
+        MyButton:
+            text: 'm/s -> km/h'
+        
