@@ -23,20 +23,28 @@
     BoxLayout:
         MyButton:
             text: 'in -> cm'
+            on_press: unit_conversions.in_to_cm(entry.text)
         MyButton:
             text: 'ft -> m'
+            on_press: unit_conversions.ft_to_m(entry.text)
         MyButton:
             text: 'yd -> m'
+            on_press: unit_conversions.yd_to_m(entry.text)
         MyButton:
             text: 'km/h -> m/s'
+            on_press: unit_conversions.kmh_to_ms(entry.text)
             
     BoxLayout:
         MyButton:
             text: 'cm -> in'
+            on_press: unit_conversions.cm_to_in(entry.text)
         MyButton:
             text: 'm -> ft'
+            on_press: unit_conversions.m_to_ft(entry.text)
         MyButton:
             text: 'm -> yd'
+            on_press: unit_conversions.m_to_yd(entry.text)
         MyButton:
             text: 'm/s -> km/h'
+            on_press: unit_conversions.ms_to_kmh(entry.text)
         
