@@ -1,0 +1,39 @@
+#:kivy 1.10.0
+#: import todo todo
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+#: import ListItemButton kivy.uix.listview.ListItemButton
+
+<ToDoList>:
+    rows: 3
+    id: main
+    task: task_input
+    task_list: task_list_view
+    
+    BoxLayout:
+        padding: 2
+        spacing: 2
+        size_hint: 1, 0.05
+        Label:
+            text: 'New Task'
+        TextInput:
+            id: task_input
+            
+    BoxLayout:
+        padding: 2
+        spacing: 2
+        size_hint: 1, 0.05
+        Button:
+            text: 'Submit'
+            on_press: main.submit_task()
+        Button:
+            text: 'Delete'
+            on_press: main.delete_task()
+        Button:
+            text: 'Replace'
+            on_press: main.replace_task()
+    
+    ListView:
+        font_size: 36
+        id: task_list_view
+        adapter:
+            ListAdapter(data=[''], cls=todo.ToDoListButton)
