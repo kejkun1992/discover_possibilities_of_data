@@ -19,6 +19,10 @@ def delete_task(selection: str) -> None:
     pass
 
 
+def replace_task(selection: str) -> None:
+    pass
+
+
 def view_the_tasks() -> list:  # load taks from database
     with UseDatabase(config) as cursor:
         _SQL = """select * from todo"""

@@ -39,7 +39,10 @@ class ToDoList(GridLayout):
         if self.task_list.adapter.selection:
             selection = self.task_list.adapter.selection[0].text
             self.task_list.adapter.data.remove(selection)
-            self.submit_task()
+            
+            text = self.task.text
+            self.task_list.adapter.data.extend([text])
+            self.task_list._trigger_reset_populate()
 
 
 class ToDoApp(App):
