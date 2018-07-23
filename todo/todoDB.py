@@ -6,13 +6,17 @@ config = {'host': '127.0.0.1',  # mysql connection config
           'database': 'todolist', }
 
 
-def log_request(task: str) -> None:  # load task to database
+def log_task(new_task: str) -> None:  # load task to database
     with UseDatabase(config) as cursor:
         _SQL = """insert into todo
                 (task)
                 values
                 (%s)"""
-        cursor.execute(_SQL, (task))
+        cursor.execute(_SQL, (new_task,))
+
+
+def delete_task(selection: str) -> None:
+    pass
 
 
 def view_the_tasks() -> list:  # load taks from database

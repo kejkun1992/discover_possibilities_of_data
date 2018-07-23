@@ -12,7 +12,7 @@ Config.set('graphics', 'width', '700')
 Config.set('graphics', 'height', '700')
 Config.set('graphics', 'fullscreen', '0')
 
-contents = todoDB.view_the_tasks()  # load data from database
+contents = todoDB.view_the_tasks()  # loads data from database to var
 
 
 class ToDoListButton(ListItemButton):
@@ -26,6 +26,7 @@ class ToDoList(GridLayout):
     def submit_task(self):
         text = self.task.text
         self.task_list.adapter.data.extend([text])
+        todoDB.log_task(text)
         self.task_list._trigger_reset_populate()
         
     def delete_task(self):
