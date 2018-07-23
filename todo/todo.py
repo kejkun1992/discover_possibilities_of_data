@@ -12,7 +12,7 @@ Config.set('graphics', 'width', '700')
 Config.set('graphics', 'height', '700')
 Config.set('graphics', 'fullscreen', '0')
 
-contents = todoDB.view_the_tasks()  # loads data from database to var
+contents = todoDB.view_the_tasks()  # load data from database to var
 
 
 class ToDoListButton(ListItemButton):
@@ -33,16 +33,15 @@ class ToDoList(GridLayout):
         if self.task_list.adapter.selection:
             selection = self.task_list.adapter.selection[0].text
             self.task_list.adapter.data.remove(selection)
+            todoDB.delete_task(selection)
             self.task_list._trigger_reset_populate()
             
     def replace_task(self):
         if self.task_list.adapter.selection:
             selection = self.task_list.adapter.selection[0].text
             self.task_list.adapter.data.remove(selection)
-            
-            text = self.task.text
-            self.task_list.adapter.data.extend([text])
-            self.task_list._trigger_reset_populate()
+            todoDB.delete_task(selection)
+            self.submit_task()
 
 
 class ToDoApp(App):

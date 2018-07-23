@@ -15,15 +15,14 @@ def log_task(new_task: str) -> None:  # load task to database
         cursor.execute(_SQL, (new_task,))
 
 
-def delete_task(selection: str) -> None:
-    pass
+def delete_task(selection: str) -> None:  # delete task from DB
+    with UseDatabase(config) as cursor:
+        _SQL = """delete from todo
+                where task=%s"""
+        cursor.execute(_SQL, (selection,))
 
 
-def replace_task(selection: str) -> None:
-    pass
-
-
-def view_the_tasks() -> list:  # load taks from database
+def view_the_tasks() -> list:  # load tasks from database
     with UseDatabase(config) as cursor:
         _SQL = """select * from todo"""
         cursor.execute(_SQL)
