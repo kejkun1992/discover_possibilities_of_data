@@ -5,11 +5,14 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.properties import ObjectProperty
 from kivy.uix.listview import ListItemButton
 from kivy.config import Config
+import todoDB
 
 Config.set('graphics', 'resizable', '0')
 Config.set('graphics', 'width', '700')
 Config.set('graphics', 'height', '700')
 Config.set('graphics', 'fullscreen', '0')
+
+contents = todoDB.view_the_tasks()  # load data from database
 
 
 class ToDoListButton(ListItemButton):
